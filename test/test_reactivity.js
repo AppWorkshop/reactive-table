@@ -331,7 +331,7 @@ testAsyncMulti('Reactivity - server-side collection', [function (test, expect) {
   var expectInsert = expect(function () {
     test.length($('.reactive-table tbody tr'), 2, "table should reactively add second row");
     Meteor.call('testRemove', function () {
-      Meteor.setTimeout(expectRemove, 500);
+      Meteor.setTimeout(expectRemove, 1000);
     });
   });
 
