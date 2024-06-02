@@ -19,5 +19,5 @@ testAsyncMulti('Events - click event', [function (test, expect) {
     document.body
   );
 
-  $('.reactive-table tbody tr:first-child').click();
+  $('.reactive-table tbody tr:first-child').trigger("click");
 }]);

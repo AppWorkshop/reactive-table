@@ -20,11 +20,11 @@ testAsyncMulti('Sorting - direction', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Marie Curie", "descending second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Claude Shannon", "descending fourth row");
 
-    $('.reactive-table th:first-child').click();
+    $('.reactive-table th:first-child').trigger("click");
     Meteor.setTimeout(expectAscending, 0);
   });
 
-  $('.reactive-table th:first-child').click();
+  $('.reactive-table th:first-child').trigger("click");
   Meteor.setTimeout(expectDescending, 0);
 }]);
 
@@ -50,11 +50,11 @@ testAsyncMulti('Sorting - column', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Ada Lovelace", "2nd column second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Claude Shannon", "2nd column fourth row");
 
-    $('.reactive-table th:nth-child(2)').click();
+    $('.reactive-table th:nth-child(2)').trigger("click");
     Meteor.setTimeout(expectSecondColumnDescending, 0);
   });
 
-  $('.reactive-table th:nth-child(2)').click();
+  $('.reactive-table th:nth-child(2)').trigger("click");
   Meteor.setTimeout(expectSecondColumn, 0);
 }]);
 
@@ -108,7 +108,7 @@ testAsyncMulti('Sorting - after adding new column with fieldIds', [function (tes
     Meteor.setTimeout(expectSecondColumnStillDescending, 0);
   });
 
-  $('.reactive-table th:first-child').click();
+  $('.reactive-table th:first-child').trigger("click");
   Meteor.setTimeout(expectDescending, 0);
 }]);
 
@@ -132,7 +132,7 @@ testAsyncMulti('Sorting - server-side', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Carl Friedrich Gauss", "ascending second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Grace Hopper", "ascending fourth row");
 
-    $('.reactive-table th:nth-child(2)').click();
+    $('.reactive-table th:nth-child(2)').trigger("click");
     Meteor.setTimeout(expectSecondColumn, 500);
   });
 
@@ -141,7 +141,7 @@ testAsyncMulti('Sorting - server-side', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Marie Curie", "descending second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Claude Shannon", "descending fourth row");
 
-    $('.reactive-table th:first-child').click();
+    $('.reactive-table th:first-child').trigger("click");
     Meteor.setTimeout(expectAscending, 500);
   });
 
@@ -150,7 +150,7 @@ testAsyncMulti('Sorting - server-side', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Carl Friedrich Gauss", "initial second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Grace Hopper", "initial fourth row");
 
-    $('.reactive-table th:first-child').click();
+    $('.reactive-table th:first-child').trigger("click");
     Meteor.setTimeout(expectDescending, 1000);
   });
 
@@ -185,11 +185,11 @@ testAsyncMulti('Sorting - virtual columns', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Ca", "2nd column second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Gr", "2nd column fourth row");
 
-    $('.reactive-table th:nth-child(2)').click();
+    $('.reactive-table th:nth-child(2)').trigger("click");
     Meteor.setTimeout(expectSecondColumnDescending, 0);
   });
 
-  $('.reactive-table th:nth-child(2)').click();
+  $('.reactive-table th:nth-child(2)').trigger("click");
   Meteor.setTimeout(expectNoChange, 0);
 }]);
 
@@ -215,7 +215,7 @@ testAsyncMulti('Sorting - multi-column', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Grace Hopper", "2nd column descending second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Claude Shannon", "2nd column descending fourth row");
 
-    $('.reactive-table th:nth-child(2)').click();
+    $('.reactive-table th:nth-child(2)').trigger("click");
     Meteor.setTimeout(expectSecondColumnAscending, 0);
   });
 
@@ -224,11 +224,11 @@ testAsyncMulti('Sorting - multi-column', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Marie Curie", "first column descending second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Claude Shannon", "first column descending fourth row");
 
-    $('.reactive-table th:nth-child(2)').click();
+    $('.reactive-table th:nth-child(2)').trigger("click");
     Meteor.setTimeout(expectSecondColumnDescending, 0);
   });
 
-  $('.reactive-table th:first-child').click();
+  $('.reactive-table th:first-child').trigger("click");
   Meteor.setTimeout(expectFirstColumnDescending, 0);
 }]);
 
@@ -254,7 +254,7 @@ testAsyncMulti('Sorting - multi-column disabled', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Grace Hopper", "2nd column descending second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Marie Curie", "2nd column descending fourth row");
 
-    $('.reactive-table th:nth-child(2)').click();
+    $('.reactive-table th:nth-child(2)').trigger("click");
     Meteor.setTimeout(expectSecondColumnAscending, 0);
   });
   
@@ -263,11 +263,11 @@ testAsyncMulti('Sorting - multi-column disabled', [function (test, expect) {
     test.equal($('.reactive-table tbody tr:nth-child(2) td:first-child').text(), "Marie Curie", "first column descending second row");
     test.equal($('.reactive-table tbody tr:nth-child(4) td:first-child').text(), "Claude Shannon", "first column descending fourth row");
 
-    $('.reactive-table th:nth-child(2)').click();
+    $('.reactive-table th:nth-child(2)').trigger("click");
     Meteor.setTimeout(expectSecondColumnDescending, 0);
   });
 
-  $('.reactive-table th:first-child').click();
+  $('.reactive-table th:first-child').trigger("click");
   Meteor.setTimeout(expectFirstColumnDescending, 0);
 }]);
 
@@ -297,6 +297,6 @@ testAsyncMulti('Sorting - nested field', [function (test, expect) {
     Blaze.remove(table);
   });
 
-  $('.reactive-table th:first-child').click();
+  $('.reactive-table th:first-child').trigger("click");
   Meteor.setTimeout(expectDescending, 0);
 }]);

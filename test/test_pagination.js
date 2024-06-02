@@ -32,7 +32,7 @@ testAsyncMulti('Pagination - previous/next controls', [function (test, expect) {
     test.length($('.reactive-table tbody tr'), 2, "second page should have two rows");
     test.equal($('.reactive-table-navigation .page-number input').val(), "2", "displayed page number should be 2");
 
-    $('.reactive-table-navigation .previous-page').click();
+    $('.reactive-table-navigation .previous-page').trigger("click");
     Meteor.setTimeout(expectBackToFirstPage, 0);
   });
 
@@ -42,7 +42,7 @@ testAsyncMulti('Pagination - previous/next controls', [function (test, expect) {
     test.equal($('.reactive-table-navigation .page-number input').val(), "3", "displayed page number should be 3");
     test.length($('.reactive-table-navigation .next-page'), 0, "last page shouldn't have next button");
 
-    $('.reactive-table-navigation .previous-page').click();
+    $('.reactive-table-navigation .previous-page').trigger("click");
     Meteor.setTimeout(expectBackToSecondPage, 0);
   });
 
@@ -51,11 +51,11 @@ testAsyncMulti('Pagination - previous/next controls', [function (test, expect) {
     test.length($('.reactive-table tbody tr'), 2, "second page should have two rows");
     test.equal($('.reactive-table-navigation .page-number input').val(), "2", "displayed page number should be 2");
 
-    $('.reactive-table-navigation .next-page').click();
+    $('.reactive-table-navigation .next-page').trigger("click");
     Meteor.setTimeout(expectLastPage, 0);
   });
 
-  $('.reactive-table-navigation .next-page').click();
+  $('.reactive-table-navigation .next-page').trigger("click");
   Meteor.setTimeout(expectSecondPage, 0);
 }]);
 
@@ -114,7 +114,7 @@ testAsyncMulti('Pagination - changing rows per page sets current page to last wh
     Meteor.setTimeout(expectFirstPage, 0);
   });
 
-  $('.reactive-table-navigation .next-page').click();
+  $('.reactive-table-navigation .next-page').trigger("click");
   Meteor.setTimeout(expectSecondPage, 0);
 }]);
 
@@ -178,7 +178,7 @@ testAsyncMulti('Pagination - server-side', [function (test, expect) {
     test.length($('.reactive-table tbody tr'), 2, "second page should have two rows");
     test.equal($('.reactive-table-navigation .page-number input').val(), "2", "displayed page number should be 2");
 
-    $('.reactive-table-navigation .previous-page').click();
+    $('.reactive-table-navigation .previous-page').trigger("click");
     Meteor.setTimeout(expectBackToFirstPage, 500);
   });
 
@@ -188,7 +188,7 @@ testAsyncMulti('Pagination - server-side', [function (test, expect) {
     test.equal($('.reactive-table-navigation .page-number input').val(), "3", "displayed page number should be 3");
     test.length($('.reactive-table-navigation .next-page'), 0, "last page shouldn't have next button");
 
-    $('.reactive-table-navigation .previous-page').click();
+    $('.reactive-table-navigation .previous-page').trigger("click");
     Meteor.setTimeout(expectBackToSecondPage, 500);
   });
 
@@ -197,7 +197,7 @@ testAsyncMulti('Pagination - server-side', [function (test, expect) {
     test.length($('.reactive-table tbody tr'), 2, "second page should have two rows");
     test.equal($('.reactive-table-navigation .page-number input').val(), "2", "displayed page number should be 2");
 
-    $('.reactive-table-navigation .next-page').click();
+    $('.reactive-table-navigation .next-page').trigger("click");
     Meteor.setTimeout(expectLastPage, 500);
   });
 
@@ -209,7 +209,7 @@ testAsyncMulti('Pagination - server-side', [function (test, expect) {
     test.length($('.reactive-table-navigation .page-number label .page-number-count').text().match(/3/), 1, "displayed page count should be 3");
     test.length($('.reactive-table-navigation .previous-page'), 0, "first page shouldn't have previous button");
 
-    $('.reactive-table-navigation .next-page').click();
+    $('.reactive-table-navigation .next-page').trigger("click");
     Meteor.setTimeout(expectSecondPage, 500);
   });
 

@@ -142,11 +142,11 @@ testAsyncMulti('Column Toggles - toggling', [function (test, expect) {
     test.length($('.reactive-table th:first-child').text().trim().match(/Visible/), 1, "visible column should still be displayed");
     test.length($('.reactive-table th:nth-child(2)').text().trim().match(/Hidden/), 1, "initially hidden column should now be displayed");
 
-    $('.reactive-table-columns-dropdown input[data-fieldid="0"]').click();
+    $('.reactive-table-columns-dropdown input[data-fieldid="0"]').trigger("click");
     Meteor.setTimeout(expectSecondColumnOnly, 0);
   });
 
-  $('.reactive-table-columns-dropdown input[data-fieldid="1"]').click();
+  $('.reactive-table-columns-dropdown input[data-fieldid="1"]').trigger("click");
   Meteor.setTimeout(expectBothColumns, 0);
 }]);
 
@@ -209,7 +209,7 @@ testAsyncMulti('Column Toggles - toggling after adding new columns with fieldId'
     Meteor.setTimeout(expectColumnsOneAndTwoOnly, 0);
   });
 
-  $('.reactive-table-columns-dropdown input[data-fieldid="three"]').click();
+  $('.reactive-table-columns-dropdown input[data-fieldid="three"]').trigger("click");
   Meteor.setTimeout(expectOneColumnOnly, 0);
 }]);
 
@@ -273,7 +273,7 @@ testAsyncMulti('Column Toggles - toggling after adding new columns without field
     Meteor.setTimeout(expectColumnsOneAndTwoOnly, 0);
   });
 
-  $('.reactive-table-columns-dropdown input[data-fieldid="1"]').click();
+  $('.reactive-table-columns-dropdown input[data-fieldid="1"]').trigger("click");
   Meteor.setTimeout(expectOneColumnOnly, 0);
 }]);
 

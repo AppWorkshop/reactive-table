@@ -64,7 +64,7 @@ testAsyncMulti('Multiple tables - sorting', [function (test, expect) {
     Blaze.remove(table2);
   });
 
-  $('.reactive-table:nth-of-type(2) th:first-child').click();
+  $('.reactive-table:nth-of-type(2) th:first-child').trigger("click");
   Meteor.setTimeout(expectSecondTableDescending, 0);
 }]);
 
@@ -115,7 +115,7 @@ testAsyncMulti('Multiple tables - pagination', [function (test, expect) {
     Blaze.remove(table2);
   });
 
-  $($('.reactive-table-navigation .next-page')[1]).click();
+  $($('.reactive-table-navigation .next-page')[1]).trigger("click");
   Meteor.setTimeout(expectSecondTablePageTwo, 0);
 }]);
 
